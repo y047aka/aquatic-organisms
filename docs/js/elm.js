@@ -6304,6 +6304,18 @@ var author$project$Main$closterium = A2(
 			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Main$outline, _List_Nil),
 			author$project$Main$pyrenoids
 		]));
+var elm$html$Html$footer = _VirtualDom_node('footer');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
+var elm$html$Html$header = _VirtualDom_node('header');
+var elm$virtual_dom$VirtualDom$node = function (tag) {
+	return _VirtualDom_node(
+		_VirtualDom_noScript(tag));
+};
+var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
+var elm$html$Html$p = _VirtualDom_node('p');
+var elm$html$Html$section = _VirtualDom_node('section');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm_community$typed_svg$TypedSvg$svg = elm_community$typed_svg$TypedSvg$Core$node('svg');
 var elm_community$typed_svg$TypedSvg$Attributes$viewBox = F4(
 	function (minX, minY, vWidth, vHeight) {
@@ -6344,15 +6356,57 @@ var author$project$Main$view = function (model) {
 		body: _List_fromArray(
 			[
 				A2(
-				elm_community$typed_svg$TypedSvg$svg,
+				elm$html$Html$header,
+				_List_Nil,
 				_List_fromArray(
 					[
-						elm_community$typed_svg$TypedSvg$Attributes$InPx$width(500),
-						elm_community$typed_svg$TypedSvg$Attributes$InPx$height(500),
-						A4(elm_community$typed_svg$TypedSvg$Attributes$viewBox, -250, -250, 500, 500)
-					]),
+						A2(
+						elm$html$Html$h1,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text('Aquatic Organisms')
+							]))
+					])),
+				A3(
+				elm$html$Html$node,
+				'main',
+				_List_Nil,
+				A2(
+					elm$core$List$map,
+					function (name) {
+						return A2(
+							elm$html$Html$section,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									elm_community$typed_svg$TypedSvg$svg,
+									_List_fromArray(
+										[
+											elm_community$typed_svg$TypedSvg$Attributes$InPx$width(500),
+											elm_community$typed_svg$TypedSvg$Attributes$InPx$height(500),
+											A4(elm_community$typed_svg$TypedSvg$Attributes$viewBox, -250, -250, 500, 500)
+										]),
+									_List_fromArray(
+										[name]))
+								]));
+					},
+					_List_fromArray(
+						[author$project$Main$closterium]))),
+				A2(
+				elm$html$Html$footer,
+				_List_Nil,
 				_List_fromArray(
-					[author$project$Main$closterium]))
+					[
+						A2(
+						elm$html$Html$p,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text('y047aka')
+							]))
+					]))
 			]),
 		title: 'Aquatic Organisms'
 	};

@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Curve
-import Html exposing (img)
+import Html exposing (footer, h1, header, node, p, section, text)
 import Html.Attributes exposing (id, src)
 import SubPath exposing (SubPath)
 import TypedSvg exposing (circle, defs, ellipse, g, rect, svg, symbol, use)
@@ -47,12 +47,27 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Aquatic Organisms"
     , body =
-        [ svg
-            [ width 500
-            , height 500
-            , viewBox -250 -250 500 500
+        [ header []
+            [ h1 [] [ text "Aquatic Organisms" ]
             ]
-            [ closterium
+        , node "main"
+            []
+            ([ closterium
+             ]
+                |> List.map
+                    (\name ->
+                        section []
+                            [ svg
+                                [ width 500
+                                , height 500
+                                , viewBox -250 -250 500 500
+                                ]
+                                [ name ]
+                            ]
+                    )
+            )
+        , footer []
+            [ p [] [ text "y047aka" ]
             ]
         ]
     }
@@ -62,6 +77,16 @@ definitions : Svg msg
 definitions =
     defs []
         [ symbol [] [] ]
+
+
+item : Svg msg -> Svg msg
+item svgItem =
+    svg
+        [ width 500
+        , height 500
+        , viewBox -250 -250 500 500
+        ]
+        [ svgItem ]
 
 
 closterium : Svg msg
