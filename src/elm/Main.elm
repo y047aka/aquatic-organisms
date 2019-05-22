@@ -57,12 +57,7 @@ view model =
                 |> List.map
                     (\name ->
                         section []
-                            [ svg
-                                [ width 500
-                                , height 500
-                                , viewBox -250 -250 500 500
-                                ]
-                                [ name ]
+                            [ item name
                             ]
                     )
             )
