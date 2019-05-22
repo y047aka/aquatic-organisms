@@ -6,11 +6,10 @@ import Html exposing (footer, h1, header, node, p, section, text)
 import Html.Attributes exposing (id, src)
 import Organisms.Closterium exposing (closterium)
 import SubPath exposing (SubPath)
-import TypedSvg exposing (circle, defs, ellipse, g, rect, svg, symbol, use)
-import TypedSvg.Attributes exposing (class, points, transform, viewBox, xlinkHref)
-import TypedSvg.Attributes.InPx exposing (cx, cy, height, r, rx, ry, width, x, y)
+import TypedSvg exposing (svg)
+import TypedSvg.Attributes exposing (class, viewBox)
+import TypedSvg.Attributes.InPx exposing (height, width, x, y)
 import TypedSvg.Core exposing (Svg)
-import TypedSvg.Types exposing (Transform(..))
 
 
 main =
@@ -72,12 +71,6 @@ view model =
             ]
         ]
     }
-
-
-definitions : Svg msg
-definitions =
-    defs []
-        [ symbol [] [] ]
 
 
 item : Svg msg -> Svg msg
