@@ -1,11 +1,9 @@
 module Main exposing (main)
 
 import Browser
-import Curve
 import Html exposing (footer, h1, header, node, p, section, text)
 import Html.Attributes exposing (id, src)
 import Organisms.Closterium exposing (closterium)
-import SubPath exposing (SubPath)
 import TypedSvg exposing (svg)
 import TypedSvg.Attributes exposing (class, viewBox)
 import TypedSvg.Attributes.InPx exposing (height, width, x, y)
@@ -22,12 +20,14 @@ main =
 
 
 type alias Model =
-    { userState : String }
+    { organisms : List String }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( Model ""
+    ( Model
+        [ "closterium"
+        ]
     , Cmd.none
     )
 
@@ -52,12 +52,16 @@ view model =
             ]
         , node "main"
             []
-            ([ closterium
-             ]
+            (model.organisms
                 |> List.map
                     (\name ->
                         section []
-                            [ item name
+                            [ case name of
+                                "closterium" ->
+                                    svgItem closterium
+
+                                _ ->
+                                    text ""
                             ]
                     )
             )
@@ -68,11 +72,11 @@ view model =
     }
 
 
-item : Svg msg -> Svg msg
-item svgItem =
+svgItem : Svg msg -> Svg msg
+svgItem item =
     svg
         [ width 500
         , height 500
         , viewBox -250 -250 500 500
         ]
-        [ svgItem ]
+        [ item ]

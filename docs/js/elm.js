@@ -4310,8 +4310,8 @@ function _Browser_load(url)
 		}
 	}));
 }
-var author$project$Main$Model = function (userState) {
-	return {userState: userState};
+var author$project$Main$Model = function (organisms) {
+	return {organisms: organisms};
 };
 var elm$core$Basics$False = {$: 'False'};
 var elm$core$Basics$True = {$: 'True'};
@@ -4792,7 +4792,9 @@ var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(
-		author$project$Main$Model(''),
+		author$project$Main$Model(
+			_List_fromArray(
+				['closterium'])),
 		elm$core$Platform$Cmd$none);
 };
 var author$project$Main$update = F2(
@@ -4976,7 +4978,7 @@ var elm_community$typed_svg$TypedSvg$Attributes$InPx$width = function (value) {
 	return elm_community$typed_svg$TypedSvg$Attributes$width(
 		elm_community$typed_svg$TypedSvg$Types$px(value));
 };
-var author$project$Main$item = function (svgItem) {
+var author$project$Main$svgItem = function (item) {
 	return A2(
 		elm_community$typed_svg$TypedSvg$svg,
 		_List_fromArray(
@@ -4986,7 +4988,7 @@ var author$project$Main$item = function (svgItem) {
 				A4(elm_community$typed_svg$TypedSvg$Attributes$viewBox, -250, -250, 500, 500)
 			]),
 		_List_fromArray(
-			[svgItem]));
+			[item]));
 };
 var ianmackenzie$elm_geometry$Vector2d$components = function (_n0) {
 	var components_ = _n0.a;
@@ -6392,11 +6394,16 @@ var author$project$Main$view = function (model) {
 							_List_Nil,
 							_List_fromArray(
 								[
-									author$project$Main$item(name)
+									function () {
+									if (name === 'closterium') {
+										return author$project$Main$svgItem(author$project$Organisms$Closterium$closterium);
+									} else {
+										return elm$html$Html$text('');
+									}
+								}()
 								]));
 					},
-					_List_fromArray(
-						[author$project$Organisms$Closterium$closterium]))),
+					model.organisms)),
 				A2(
 				elm$html$Html$footer,
 				_List_Nil,
