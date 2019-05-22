@@ -4,6 +4,7 @@ import Browser
 import Curve
 import Html exposing (footer, h1, header, node, p, section, text)
 import Html.Attributes exposing (id, src)
+import Organisms.Closterium exposing (closterium)
 import SubPath exposing (SubPath)
 import TypedSvg exposing (circle, defs, ellipse, g, rect, svg, symbol, use)
 import TypedSvg.Attributes exposing (class, points, transform, viewBox, xlinkHref)
@@ -87,45 +88,3 @@ item svgItem =
         , viewBox -250 -250 500 500
         ]
         [ svgItem ]
-
-
-closterium : Svg msg
-closterium =
-    g [ transform [ Rotate 30 0 0 ] ]
-        [ SubPath.element outline []
-        , pyrenoids
-        ]
-
-
-outline : SubPath
-outline =
-    Curve.catmullRomClosed 0.5
-        [ ( 0, 10 )
-        , ( 55, 5 )
-        , ( 120, -20 )
-        , ( 150, -40 )
-        , ( 150, -30 )
-        , ( 85, 35 )
-        , ( 0, 60 )
-        , ( -85, 35 )
-        , ( -150, -30 )
-        , ( -150, -40 )
-        , ( -120, -20 )
-        , ( -55, 5 )
-        ]
-
-
-pyrenoids : Svg msg
-pyrenoids =
-    g []
-        ([ ( -95, 10 )
-         , ( -70, 22 )
-         , ( -45, 30 )
-         , ( -20, 35 )
-         , ( 20, 35 )
-         , ( 45, 30 )
-         , ( 70, 22 )
-         , ( 95, 10 )
-         ]
-            |> List.map (\( dx, dy ) -> circle [ class [ "pyrenoid" ], cx dx, cy dy, r 5 ] [])
-        )

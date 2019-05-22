@@ -5390,7 +5390,7 @@ var folkertdev$one_true_path_experiment$Curve$catmullRomClosed = F2(
 			}
 		}
 	});
-var author$project$Main$outline = A2(
+var author$project$Organisms$Closterium$outline = A2(
 	folkertdev$one_true_path_experiment$Curve$catmullRomClosed,
 	0.5,
 	_List_fromArray(
@@ -5582,7 +5582,7 @@ var elm_community$typed_svg$TypedSvg$Attributes$InPx$r = function (value) {
 	return elm_community$typed_svg$TypedSvg$Attributes$r(
 		elm_community$typed_svg$TypedSvg$Types$px(value));
 };
-var author$project$Main$pyrenoids = A2(
+var author$project$Organisms$Closterium$pyrenoids = A2(
 	elm_community$typed_svg$TypedSvg$g,
 	_List_Nil,
 	A2(
@@ -6289,7 +6289,7 @@ var folkertdev$one_true_path_experiment$SubPath$element = F2(
 				attributes),
 			_List_Nil);
 	});
-var author$project$Main$closterium = A2(
+var author$project$Organisms$Closterium$closterium = A2(
 	elm_community$typed_svg$TypedSvg$g,
 	_List_fromArray(
 		[
@@ -6301,8 +6301,8 @@ var author$project$Main$closterium = A2(
 		]),
 	_List_fromArray(
 		[
-			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Main$outline, _List_Nil),
-			author$project$Main$pyrenoids
+			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Organisms$Closterium$outline, _List_Nil),
+			author$project$Organisms$Closterium$pyrenoids
 		]));
 var elm$html$Html$footer = _VirtualDom_node('footer');
 var elm$html$Html$h1 = _VirtualDom_node('h1');
@@ -6393,7 +6393,7 @@ var author$project$Main$view = function (model) {
 								]));
 					},
 					_List_fromArray(
-						[author$project$Main$closterium]))),
+						[author$project$Organisms$Closterium$closterium]))),
 				A2(
 				elm$html$Html$footer,
 				_List_Nil,
