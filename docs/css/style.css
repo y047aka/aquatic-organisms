@@ -1,9 +1,20 @@
 @charset "UTF-8";
-body, header, footer, ul, li {
+body, header, footer, h1, p, ul, li {
   margin: 0;
   padding: 0;
   line-height: 1.0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.5rem;
+  background: #111;
+  color: #FFF; }
+
+h1 {
+  font-weight: normal; }
 
 img {
   position: absolute;
@@ -13,12 +24,36 @@ img {
   display: block;
   height: 960px; }
 
-svg {
-  stroke-width: 0.5;
-  background: rgba(0, 0, 150, 0.03);
-  fill: rgba(34, 204, 0, 0.3);
-  stroke: rgba(75, 143, 61, 0.5);
-  border-radius: 50%; }
-  svg .pyrenoid {
-    fill: rgba(0, 102, 51, 0.3);
-    stroke: rgba(0, 26, 0, 0.5); }
+header.site-header {
+  padding: 1rem 2rem; }
+  header.site-header h1 {
+    font-size: 2.4rem; }
+
+footer.site-footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem; }
+
+ul.organisms {
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-column-gap: 2rem;
+  padding: 2rem; }
+  ul.organisms li {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    list-style: none; }
+    ul.organisms li > h1 {
+      grid-row: 2;
+      padding: 2rem 0 1rem;
+      font-size: 2rem; }
+    ul.organisms li > p {
+      grid-row: 3; }
+    ul.organisms li svg {
+      stroke-width: 0.5;
+      background: #000;
+      fill: rgba(34, 204, 0, 0.3);
+      stroke: rgba(75, 143, 61, 0.5); }
+      ul.organisms li svg .pyrenoid {
+        fill: rgba(0, 102, 51, 0.3);
+        stroke: rgba(0, 26, 0, 0.5); }
