@@ -6353,6 +6353,33 @@ var author$project$Organisms$Closterium$closterium = A2(
 			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Organisms$Closterium$outline, _List_Nil),
 			author$project$Organisms$Closterium$pyrenoids
 		]));
+var elm$html$Html$li = _VirtualDom_node('li');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+var elm$html$Html$ul = _VirtualDom_node('ul');
+var author$project$Main$viewOrganisms = function (model) {
+	return A2(
+		elm$html$Html$ul,
+		_List_Nil,
+		A2(
+			elm$core$List$map,
+			function (name) {
+				return A2(
+					elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							function () {
+							if (name === 'closterium') {
+								return author$project$Main$svgItem(author$project$Organisms$Closterium$closterium);
+							} else {
+								return elm$html$Html$text('');
+							}
+						}()
+						]));
+			},
+			model.organisms));
+};
 var elm$html$Html$footer = _VirtualDom_node('footer');
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$header = _VirtualDom_node('header');
@@ -6362,16 +6389,25 @@ var elm$virtual_dom$VirtualDom$node = function (tag) {
 };
 var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
 var elm$html$Html$p = _VirtualDom_node('p');
-var elm$html$Html$section = _VirtualDom_node('section');
-var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
 			[
 				A2(
 				elm$html$Html$header,
-				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('site-header')
+					]),
 				_List_fromArray(
 					[
 						A2(
@@ -6386,35 +6422,27 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$node,
 				'main',
 				_List_Nil,
-				A2(
-					elm$core$List$map,
-					function (name) {
-						return A2(
-							elm$html$Html$section,
-							_List_Nil,
-							_List_fromArray(
-								[
-									function () {
-									if (name === 'closterium') {
-										return author$project$Main$svgItem(author$project$Organisms$Closterium$closterium);
-									} else {
-										return elm$html$Html$text('');
-									}
-								}()
-								]));
-					},
-					model.organisms)),
+				_List_fromArray(
+					[
+						author$project$Main$viewOrganisms(model)
+					])),
 				A2(
 				elm$html$Html$footer,
-				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('site-footer')
+					]),
 				_List_fromArray(
 					[
 						A2(
 						elm$html$Html$p,
-						_List_Nil,
 						_List_fromArray(
 							[
-								elm$html$Html$text('y047aka')
+								elm$html$Html$Attributes$class('copyright')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('© 2019 y047aka')
 							]))
 					]))
 			]),

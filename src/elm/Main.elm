@@ -1,11 +1,11 @@
 module Main exposing (main)
 
 import Browser
-import Html exposing (footer, h1, header, node, p, section, text)
-import Html.Attributes exposing (id, src)
+import Html exposing (Html, footer, h1, header, li, node, p, text, ul)
+import Html.Attributes exposing (class, id, src)
 import Organisms.Closterium exposing (closterium)
 import TypedSvg exposing (svg)
-import TypedSvg.Attributes exposing (class, viewBox)
+import TypedSvg.Attributes exposing (viewBox)
 import TypedSvg.Attributes.InPx exposing (height, width, x, y)
 import TypedSvg.Core exposing (Svg)
 
@@ -17,6 +17,10 @@ main =
         , view = view
         , subscriptions = \_ -> Sub.none
         }
+
+
+
+-- MODEL
 
 
 type alias Model =
@@ -32,6 +36,10 @@ init _ =
     )
 
 
+
+-- UPDATE
+
+
 type Msg
     = NoOp
 
@@ -43,33 +51,43 @@ update msg model =
             ( model, Cmd.none )
 
 
+
+-- VIEW
+
+
 view : Model -> Browser.Document Msg
 view model =
     { title = "Aquatic Organisms"
     , body =
-        [ header []
+        [ header [ class "site-header" ]
             [ h1 [] [ text "Aquatic Organisms" ]
             ]
         , node "main"
             []
-            (model.organisms
-                |> List.map
-                    (\name ->
-                        section []
-                            [ case name of
-                                "closterium" ->
-                                    svgItem closterium
-
-                                _ ->
-                                    text ""
-                            ]
-                    )
-            )
-        , footer []
-            [ p [] [ text "y047aka" ]
+            [ viewOrganisms model ]
+        , footer [ class "site-footer" ]
+            [ p [ class "copyright" ] [ text "© 2019 y047aka" ]
             ]
         ]
     }
+
+
+viewOrganisms : Model -> Html Msg
+viewOrganisms model =
+    ul []
+        (model.organisms
+            |> List.map
+                (\name ->
+                    li []
+                        [ case name of
+                            "closterium" ->
+                                svgItem closterium
+
+                            _ ->
+                                text ""
+                        ]
+                )
+        )
 
 
 svgItem : Svg msg -> Svg msg
