@@ -86,7 +86,7 @@ viewOrganisms model =
         (model.organisms
             |> List.map
                 (\o ->
-                    li []
+                    li [ class "closterium" ]
                         [ h1 [] [ text o.japaneseName ]
                         , p [] [ text ("学名：" ++ o.binomialName) ]
                         , case o.binomialName of

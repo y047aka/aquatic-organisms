@@ -12,13 +12,17 @@ import TypedSvg.Types exposing (Transform(..))
 closterium : Svg msg
 closterium =
     g [ transform [ Rotate 30 0 0 ] ]
-        [ SubPath.element outline []
+        [ g [ class [ "cell-wall" ] ] [ SubPath.element cellWall [] ]
         , pyrenoids
         ]
 
 
-outline : SubPath
-outline =
+
+-- 細胞壁
+
+
+cellWall : SubPath
+cellWall =
     Curve.catmullRomClosed 0.5
         [ ( 0, 10 )
         , ( 55, 5 )
@@ -33,6 +37,10 @@ outline =
         , ( -120, -20 )
         , ( -55, 5 )
         ]
+
+
+
+-- ピレノイド
 
 
 pyrenoids : Svg msg

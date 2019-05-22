@@ -5577,7 +5577,7 @@ var folkertdev$one_true_path_experiment$Curve$catmullRomClosed = F2(
 			}
 		}
 	});
-var author$project$Organisms$Closterium$outline = A2(
+var author$project$Organisms$Closterium$cellWall = A2(
 	folkertdev$one_true_path_experiment$Curve$catmullRomClosed,
 	0.5,
 	_List_fromArray(
@@ -6352,7 +6352,18 @@ var author$project$Organisms$Closterium$closterium = A2(
 		]),
 	_List_fromArray(
 		[
-			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Organisms$Closterium$outline, _List_Nil),
+			A2(
+			elm_community$typed_svg$TypedSvg$g,
+			_List_fromArray(
+				[
+					elm_community$typed_svg$TypedSvg$Attributes$class(
+					_List_fromArray(
+						['cell-wall']))
+				]),
+			_List_fromArray(
+				[
+					A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Organisms$Closterium$cellWall, _List_Nil)
+				])),
 			author$project$Organisms$Closterium$pyrenoids
 		]));
 var elm$html$Html$h1 = _VirtualDom_node('h1');
@@ -6382,7 +6393,10 @@ var author$project$Main$viewOrganisms = function (model) {
 			function (o) {
 				return A2(
 					elm$html$Html$li,
-					_List_Nil,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('closterium')
+						]),
 					_List_fromArray(
 						[
 							A2(

@@ -50,10 +50,13 @@ ul.organisms {
     ul.organisms li > p {
       grid-row: 3; }
     ul.organisms li svg {
-      stroke-width: 0.5;
-      background: #000;
-      fill: rgba(34, 204, 0, 0.3);
-      stroke: rgba(75, 143, 61, 0.5); }
-      ul.organisms li svg .pyrenoid {
-        fill: rgba(0, 102, 51, 0.3);
-        stroke: rgba(0, 26, 0, 0.5); }
+      background: #000; }
+
+.closterium svg .cell-wall {
+  stroke-width: 0.5;
+  fill: rgba(255, 255, 255, 0.1);
+  stroke: rgba(223, 240, 219, 0.7); }
+
+.closterium svg .pyrenoid {
+  fill: rgba(51, 255, 51, 0.4);
+  stroke: rgba(0, 26, 0, 0.5); }
