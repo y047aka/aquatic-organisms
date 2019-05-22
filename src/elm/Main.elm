@@ -24,13 +24,21 @@ main =
 
 
 type alias Model =
-    { organisms : List String }
+    { organisms : List Organism }
+
+
+type alias Organism =
+    { binomialName : String
+    , japaneseName : String
+    }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Model
-        [ "closterium"
+        [ { binomialName = "Closterium"
+          , japaneseName = "ミカヅキモ"
+          }
         ]
     , Cmd.none
     )
@@ -74,13 +82,15 @@ view model =
 
 viewOrganisms : Model -> Html Msg
 viewOrganisms model =
-    ul []
+    ul [ class "organisms" ]
         (model.organisms
             |> List.map
-                (\name ->
+                (\o ->
                     li []
-                        [ case name of
-                            "closterium" ->
+                        [ h1 [] [ text o.japaneseName ]
+                        , p [] [ text ("学名：" ++ o.binomialName) ]
+                        , case o.binomialName of
+                            "Closterium" ->
                                 svgItem closterium
 
                             _ ->

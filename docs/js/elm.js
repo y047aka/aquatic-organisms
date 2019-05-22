@@ -4794,7 +4794,9 @@ var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(
 		author$project$Main$Model(
 			_List_fromArray(
-				['closterium'])),
+				[
+					{binomialName: 'Closterium', japaneseName: 'ミカヅキモ'}
+				])),
 		elm$core$Platform$Cmd$none);
 };
 var author$project$Main$update = F2(
@@ -6353,24 +6355,53 @@ var author$project$Organisms$Closterium$closterium = A2(
 			A2(folkertdev$one_true_path_experiment$SubPath$element, author$project$Organisms$Closterium$outline, _List_Nil),
 			author$project$Organisms$Closterium$pyrenoids
 		]));
+var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$p = _VirtualDom_node('p');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$html$Html$ul = _VirtualDom_node('ul');
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var author$project$Main$viewOrganisms = function (model) {
 	return A2(
 		elm$html$Html$ul,
-		_List_Nil,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('organisms')
+			]),
 		A2(
 			elm$core$List$map,
-			function (name) {
+			function (o) {
 				return A2(
 					elm$html$Html$li,
 					_List_Nil,
 					_List_fromArray(
 						[
+							A2(
+							elm$html$Html$h1,
+							_List_Nil,
+							_List_fromArray(
+								[
+									elm$html$Html$text(o.japaneseName)
+								])),
+							A2(
+							elm$html$Html$p,
+							_List_Nil,
+							_List_fromArray(
+								[
+									elm$html$Html$text('学名：' + o.binomialName)
+								])),
 							function () {
-							if (name === 'closterium') {
+							var _n0 = o.binomialName;
+							if (_n0 === 'Closterium') {
 								return author$project$Main$svgItem(author$project$Organisms$Closterium$closterium);
 							} else {
 								return elm$html$Html$text('');
@@ -6381,23 +6412,12 @@ var author$project$Main$viewOrganisms = function (model) {
 			model.organisms));
 };
 var elm$html$Html$footer = _VirtualDom_node('footer');
-var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$header = _VirtualDom_node('header');
 var elm$virtual_dom$VirtualDom$node = function (tag) {
 	return _VirtualDom_node(
 		_VirtualDom_noScript(tag));
 };
 var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
-var elm$html$Html$p = _VirtualDom_node('p');
-var elm$json$Json$Encode$string = _Json_wrap;
-var elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$string(string));
-	});
-var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
