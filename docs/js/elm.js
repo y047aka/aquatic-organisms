@@ -4795,7 +4795,8 @@ var author$project$Main$init = function (_n0) {
 		author$project$Main$Model(
 			_List_fromArray(
 				[
-					{binomialName: 'Closterium', japaneseName: 'ミカヅキモ'}
+					{binomialName: 'Closterium', japaneseName: 'ミカヅキモ'},
+					{binomialName: 'Volvox', japaneseName: 'ボルボックス'}
 				])),
 		elm$core$Platform$Cmd$none);
 };
@@ -4830,6 +4831,20 @@ var elm$virtual_dom$VirtualDom$nodeNS = function (tag) {
 };
 var elm_community$typed_svg$TypedSvg$Core$node = elm$virtual_dom$VirtualDom$nodeNS('http://www.w3.org/2000/svg');
 var elm_community$typed_svg$TypedSvg$svg = elm_community$typed_svg$TypedSvg$Core$node('svg');
+var elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var elm_community$typed_svg$TypedSvg$Core$attribute = elm$virtual_dom$VirtualDom$attribute;
+var elm_community$typed_svg$TypedSvg$Attributes$class = function (names) {
+	return A2(
+		elm_community$typed_svg$TypedSvg$Core$attribute,
+		'class',
+		A2(elm$core$String$join, ' ', names));
+};
 var elm$core$List$foldrHelper = F4(
 	function (fn, acc, ctr, ls) {
 		if (!ls.b) {
@@ -4900,14 +4915,6 @@ var elm$core$List$map = F2(
 			xs);
 	});
 var elm$core$String$fromFloat = _String_fromNumber;
-var elm$virtual_dom$VirtualDom$attribute = F2(
-	function (key, value) {
-		return A2(
-			_VirtualDom_attribute,
-			_VirtualDom_noOnOrFormAction(key),
-			_VirtualDom_noJavaScriptOrHtmlUri(value));
-	});
-var elm_community$typed_svg$TypedSvg$Core$attribute = elm$virtual_dom$VirtualDom$attribute;
 var elm_community$typed_svg$TypedSvg$Attributes$viewBox = F4(
 	function (minX, minY, vWidth, vHeight) {
 		return A2(
@@ -4980,18 +4987,22 @@ var elm_community$typed_svg$TypedSvg$Attributes$InPx$width = function (value) {
 	return elm_community$typed_svg$TypedSvg$Attributes$width(
 		elm_community$typed_svg$TypedSvg$Types$px(value));
 };
-var author$project$Main$svgItem = function (item) {
-	return A2(
-		elm_community$typed_svg$TypedSvg$svg,
-		_List_fromArray(
-			[
-				elm_community$typed_svg$TypedSvg$Attributes$InPx$width(500),
-				elm_community$typed_svg$TypedSvg$Attributes$InPx$height(500),
-				A4(elm_community$typed_svg$TypedSvg$Attributes$viewBox, -250, -250, 500, 500)
-			]),
-		_List_fromArray(
-			[item]));
-};
+var author$project$Main$svgItem = F2(
+	function (item, className) {
+		return A2(
+			elm_community$typed_svg$TypedSvg$svg,
+			_List_fromArray(
+				[
+					elm_community$typed_svg$TypedSvg$Attributes$class(
+					_List_fromArray(
+						[className])),
+					elm_community$typed_svg$TypedSvg$Attributes$InPx$width(500),
+					elm_community$typed_svg$TypedSvg$Attributes$InPx$height(500),
+					A4(elm_community$typed_svg$TypedSvg$Attributes$viewBox, -250, -250, 500, 500)
+				]),
+			_List_fromArray(
+				[item]));
+	});
 var ianmackenzie$elm_geometry$Vector2d$components = function (_n0) {
 	var components_ = _n0.a;
 	return components_;
@@ -5597,12 +5608,6 @@ var author$project$Organisms$Closterium$cellWall = A2(
 		]));
 var elm_community$typed_svg$TypedSvg$circle = elm_community$typed_svg$TypedSvg$Core$node('circle');
 var elm_community$typed_svg$TypedSvg$g = elm_community$typed_svg$TypedSvg$Core$node('g');
-var elm_community$typed_svg$TypedSvg$Attributes$class = function (names) {
-	return A2(
-		elm_community$typed_svg$TypedSvg$Core$attribute,
-		'class',
-		A2(elm$core$String$join, ' ', names));
-};
 var elm_community$typed_svg$TypedSvg$Attributes$cx = function (length) {
 	return A2(
 		elm_community$typed_svg$TypedSvg$Core$attribute,
@@ -6366,6 +6371,61 @@ var author$project$Organisms$Closterium$closterium = A2(
 				])),
 			author$project$Organisms$Closterium$pyrenoids
 		]));
+var author$project$Organisms$Volvox$children = A2(
+	elm_community$typed_svg$TypedSvg$g,
+	_List_Nil,
+	A2(
+		elm$core$List$map,
+		function (_n0) {
+			var dx = _n0.a;
+			var dy = _n0.b;
+			var radius = _n0.c;
+			return A2(
+				elm_community$typed_svg$TypedSvg$circle,
+				_List_fromArray(
+					[
+						elm_community$typed_svg$TypedSvg$Attributes$class(
+						_List_fromArray(
+							['child'])),
+						elm_community$typed_svg$TypedSvg$Attributes$InPx$cx(dx),
+						elm_community$typed_svg$TypedSvg$Attributes$InPx$cy(dy),
+						elm_community$typed_svg$TypedSvg$Attributes$InPx$r(radius)
+					]),
+				_List_Nil);
+		},
+		_List_fromArray(
+			[
+				_Utils_Tuple3(-80, -30, 55),
+				_Utils_Tuple3(35, -80, 55),
+				_Utils_Tuple3(85, 25, 55),
+				_Utils_Tuple3(-45, 45, 60)
+			])));
+var author$project$Organisms$Volvox$parent = A2(
+	elm_community$typed_svg$TypedSvg$circle,
+	_List_fromArray(
+		[
+			elm_community$typed_svg$TypedSvg$Attributes$InPx$cx(0),
+			elm_community$typed_svg$TypedSvg$Attributes$InPx$cy(0),
+			elm_community$typed_svg$TypedSvg$Attributes$InPx$r(150)
+		]),
+	_List_Nil);
+var author$project$Organisms$Volvox$volvox = A2(
+	elm_community$typed_svg$TypedSvg$g,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A2(
+			elm_community$typed_svg$TypedSvg$g,
+			_List_fromArray(
+				[
+					elm_community$typed_svg$TypedSvg$Attributes$class(
+					_List_fromArray(
+						['parent']))
+				]),
+			_List_fromArray(
+				[author$project$Organisms$Volvox$parent])),
+			author$project$Organisms$Volvox$children
+		]));
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$li = _VirtualDom_node('li');
 var elm$html$Html$p = _VirtualDom_node('p');
@@ -6393,10 +6453,7 @@ var author$project$Main$viewOrganisms = function (model) {
 			function (o) {
 				return A2(
 					elm$html$Html$li,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('closterium')
-						]),
+					_List_Nil,
 					_List_fromArray(
 						[
 							A2(
@@ -6415,10 +6472,13 @@ var author$project$Main$viewOrganisms = function (model) {
 								])),
 							function () {
 							var _n0 = o.binomialName;
-							if (_n0 === 'Closterium') {
-								return author$project$Main$svgItem(author$project$Organisms$Closterium$closterium);
-							} else {
-								return elm$html$Html$text('');
+							switch (_n0) {
+								case 'Closterium':
+									return A2(author$project$Main$svgItem, author$project$Organisms$Closterium$closterium, 'closterium');
+								case 'Volvox':
+									return A2(author$project$Main$svgItem, author$project$Organisms$Volvox$volvox, 'volvox');
+								default:
+									return elm$html$Html$text('');
 							}
 						}()
 						]));

@@ -4,6 +4,7 @@ import Browser
 import Html exposing (Html, footer, h1, header, li, node, p, text, ul)
 import Html.Attributes exposing (class, id, src)
 import Organisms.Closterium exposing (closterium)
+import Organisms.Volvox exposing (volvox)
 import TypedSvg exposing (svg)
 import TypedSvg.Attributes exposing (viewBox)
 import TypedSvg.Attributes.InPx exposing (height, width, x, y)
@@ -38,6 +39,9 @@ init _ =
     ( Model
         [ { binomialName = "Closterium"
           , japaneseName = "ミカヅキモ"
+          }
+        , { binomialName = "Volvox"
+          , japaneseName = "ボルボックス"
           }
         ]
     , Cmd.none
@@ -86,12 +90,15 @@ viewOrganisms model =
         (model.organisms
             |> List.map
                 (\o ->
-                    li [ class "closterium" ]
+                    li []
                         [ h1 [] [ text o.japaneseName ]
                         , p [] [ text ("学名：" ++ o.binomialName) ]
                         , case o.binomialName of
                             "Closterium" ->
-                                svgItem closterium
+                                svgItem closterium "closterium"
+
+                            "Volvox" ->
+                                svgItem volvox "volvox"
 
                             _ ->
                                 text ""
@@ -100,10 +107,11 @@ viewOrganisms model =
         )
 
 
-svgItem : Svg msg -> Svg msg
-svgItem item =
+svgItem : Svg msg -> String -> Svg msg
+svgItem item className =
     svg
-        [ width 500
+        [ TypedSvg.Attributes.class [ className ]
+        , width 500
         , height 500
         , viewBox -250 -250 500 500
         ]
