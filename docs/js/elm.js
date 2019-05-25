@@ -6371,6 +6371,9 @@ var author$project$Organisms$Closterium$closterium = A2(
 				])),
 			author$project$Organisms$Closterium$pyrenoids
 		]));
+var elm_community$typed_svg$TypedSvg$Attributes$style = function (value) {
+	return A2(elm_community$typed_svg$TypedSvg$Core$attribute, 'style', value);
+};
 var author$project$Organisms$Volvox$children = A2(
 	elm_community$typed_svg$TypedSvg$g,
 	_List_Nil,
@@ -6389,7 +6392,8 @@ var author$project$Organisms$Volvox$children = A2(
 							['child'])),
 						elm_community$typed_svg$TypedSvg$Attributes$InPx$cx(dx),
 						elm_community$typed_svg$TypedSvg$Attributes$InPx$cy(dy),
-						elm_community$typed_svg$TypedSvg$Attributes$InPx$r(radius)
+						elm_community$typed_svg$TypedSvg$Attributes$InPx$r(radius),
+						elm_community$typed_svg$TypedSvg$Attributes$style('filter: url(#feTurbulence);')
 					]),
 				_List_Nil);
 		},
@@ -6400,6 +6404,109 @@ var author$project$Organisms$Volvox$children = A2(
 				_Utils_Tuple3(85, 25, 55),
 				_Utils_Tuple3(-45, 45, 60)
 			])));
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
+var elm_community$typed_svg$TypedSvg$defs = elm_community$typed_svg$TypedSvg$Core$node('defs');
+var elm_community$typed_svg$TypedSvg$filter = elm_community$typed_svg$TypedSvg$Core$node('filter');
+var elm_community$typed_svg$TypedSvg$Attributes$stitchTiles = elm_community$typed_svg$TypedSvg$Core$attribute('stitchTiles');
+var elm_community$typed_svg$TypedSvg$Filters$colorMatrix = elm_community$typed_svg$TypedSvg$Core$node('feColorMatrix');
+var elm_community$typed_svg$TypedSvg$Filters$turbulence = elm_community$typed_svg$TypedSvg$Core$node('feTurbulence');
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$baseFrequency = F2(
+	function (xFrequency, yFrequency) {
+		return A2(
+			elm_community$typed_svg$TypedSvg$Core$attribute,
+			'baseFrequency',
+			elm$core$String$fromFloat(xFrequency) + (' ' + elm$core$String$fromFloat(yFrequency)));
+	});
+var elm_community$typed_svg$TypedSvg$TypesToStrings$colorMatrixTypeToString = function (colorMatrixType) {
+	switch (colorMatrixType.$) {
+		case 'ColorMatrixTypeMatrix':
+			return 'matrix';
+		case 'ColorMatrixTypeSaturate':
+			return 'saturate';
+		case 'ColorMatrixTypeHueRotate':
+			return 'hueRotate';
+		default:
+			return 'luminanceToAlpha';
+	}
+};
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$colorMatrixType = function (cmType) {
+	return A2(
+		elm_community$typed_svg$TypedSvg$Core$attribute,
+		'type',
+		elm_community$typed_svg$TypedSvg$TypesToStrings$colorMatrixTypeToString(cmType));
+};
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$colorMatrixValues = function (string) {
+	return A2(elm_community$typed_svg$TypedSvg$Core$attribute, 'values', string);
+};
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$numOctaves = function (_int) {
+	return A2(
+		elm_community$typed_svg$TypedSvg$Core$attribute,
+		'numOctaves',
+		elm$core$String$fromInt(_int));
+};
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$seed = function (value) {
+	return A2(
+		elm_community$typed_svg$TypedSvg$Core$attribute,
+		'seed',
+		elm$core$String$fromFloat(value));
+};
+var elm_community$typed_svg$TypedSvg$TypesToStrings$turbulenceTypeToString = function (turbulenceType) {
+	if (turbulenceType.$ === 'TurbulenceTypeFractalNoise') {
+		return 'fractalNoise';
+	} else {
+		return 'turbulence';
+	}
+};
+var elm_community$typed_svg$TypedSvg$Filters$Attributes$turbulenceType = function (tType) {
+	return A2(
+		elm_community$typed_svg$TypedSvg$Core$attribute,
+		'type',
+		elm_community$typed_svg$TypedSvg$TypesToStrings$turbulenceTypeToString(tType));
+};
+var elm_community$typed_svg$TypedSvg$Types$ColorMatrixTypeSaturate = {$: 'ColorMatrixTypeSaturate'};
+var elm_community$typed_svg$TypedSvg$Types$TurbulenceTypeFractalNoise = {$: 'TurbulenceTypeFractalNoise'};
+var author$project$Organisms$Volvox$noise = A2(
+	elm_community$typed_svg$TypedSvg$defs,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A2(
+			elm_community$typed_svg$TypedSvg$filter,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$id('feTurbulence')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					elm_community$typed_svg$TypedSvg$Filters$turbulence,
+					_List_fromArray(
+						[
+							elm_community$typed_svg$TypedSvg$Filters$Attributes$turbulenceType(elm_community$typed_svg$TypedSvg$Types$TurbulenceTypeFractalNoise),
+							A2(elm_community$typed_svg$TypedSvg$Filters$Attributes$baseFrequency, 5.0e-2, 5.0e-2),
+							elm_community$typed_svg$TypedSvg$Filters$Attributes$seed(3),
+							elm_community$typed_svg$TypedSvg$Filters$Attributes$numOctaves(5),
+							elm_community$typed_svg$TypedSvg$Attributes$stitchTiles('stitch')
+						]),
+					_List_Nil),
+					A2(
+					elm_community$typed_svg$TypedSvg$Filters$colorMatrix,
+					_List_fromArray(
+						[
+							elm_community$typed_svg$TypedSvg$Filters$Attributes$colorMatrixType(elm_community$typed_svg$TypedSvg$Types$ColorMatrixTypeSaturate),
+							elm_community$typed_svg$TypedSvg$Filters$Attributes$colorMatrixValues('0')
+						]),
+					_List_Nil)
+				]))
+		]));
 var author$project$Organisms$Volvox$parent = A2(
 	elm_community$typed_svg$TypedSvg$circle,
 	_List_fromArray(
@@ -6424,7 +6531,8 @@ var author$project$Organisms$Volvox$volvox = A2(
 				]),
 			_List_fromArray(
 				[author$project$Organisms$Volvox$parent])),
-			author$project$Organisms$Volvox$children
+			author$project$Organisms$Volvox$children,
+			author$project$Organisms$Volvox$noise
 		]));
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$li = _VirtualDom_node('li');
@@ -6432,14 +6540,6 @@ var elm$html$Html$p = _VirtualDom_node('p');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$html$Html$ul = _VirtualDom_node('ul');
-var elm$json$Json$Encode$string = _Json_wrap;
-var elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$string(string));
-	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var author$project$Main$viewOrganisms = function (model) {
 	return A2(
